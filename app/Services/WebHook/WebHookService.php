@@ -74,7 +74,7 @@ class WebHookService extends BaseService
 
         foreach ($modelProduct->offers as $offer) {
             $offer->update([
-                'status' => $product->status,
+                'status' => ProductEnum::toOfferEnum($product->status),
                 'price' => $product->price,
                 'stock' => $product->quantity,
                 'sale_price' => $product->promotional_price,
