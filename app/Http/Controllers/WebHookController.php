@@ -11,6 +11,6 @@ class WebHookController extends Controller
 {
     public function handle(WebHookRequest $request): JsonResponse
     {
-       return WebHook::sync((int) $request->only('product_ref')['product_ref']);
+       return WebHook::sync((int) $request->input("product_ref"));
     }
 }

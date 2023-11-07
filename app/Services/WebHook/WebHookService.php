@@ -11,6 +11,7 @@ use App\Services\Platform\Facades\Platform;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Services\Platform\Entities\Product as ProductEntity;
 
 class WebHookService extends BaseService
 {
@@ -39,7 +40,7 @@ class WebHookService extends BaseService
             $this->logError($exception);
         }
     }
-    protected function fetchPlatformProduct(int $product_ref): ?object
+    protected function fetchPlatformProduct(int $product_ref): ProductEntity|null
     {
         return Platform::products()->find($product_ref);
     }
